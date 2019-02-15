@@ -1,7 +1,7 @@
 output "tfe_repo_workspace_id" {
   description = "Workspace ID for Repo-based workspace"
   value = "${tfe_workspace.repo.id}"
-  depends_on = "${tfe_workspace.repo}"
+  #depends_on = "${tfe_workspace.repo}"
 }
 
 output "tfe_cli_workspace_id" {
