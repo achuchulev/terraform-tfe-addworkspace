@@ -28,12 +28,12 @@ resource "tfe_workspace" "cli" {
 resource "tfe_team_access" "workspace" {
   access              = "${var.tfe_team_access}"
   team_id             = "${var.tfe_team}"
-  workspace_id        = "${var.workspace_type == "repo" ? "${tfe_workspace.repo.id}" : "${tfe_workspace.cli.id}"}"
+  workspace_id        = "${var.workspace_type == "repo" ? "${tfe_workspace.repo.*.id}" : "${tfe_workspace.cli.*.id}"}"
 }
 
 resource "tfe_variable" "info_deploy" {
   key           = "info_deploy"
   value         = "TFE"
   category      = "terraform"
-  workspace_id  = "${var.workspace_type == "repo" ? "${tfe_workspace.repo.id}" : "${tfe_workspace.cli.id}"}"
+  workspace_id  = "${var.workspace_type == "repo" ? "${tfe_workspace.repo.*.id}" : "${tfe_workspace.cli.*.id}"}"
 }
