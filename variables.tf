@@ -3,9 +3,9 @@ variable "oauth" {}
 variable "tfe_organization" {
     default = "atanasc"
 }
-variable "aws_account" {
-  description = "AWS Account Name"
-}
+#variable "aws_account" {
+#  description = "AWS Account Name"
+#}
 variable "tfe_team" {}
 variable "tfe_team_access" {
   default = "admin"
